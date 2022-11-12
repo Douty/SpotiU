@@ -25,7 +25,6 @@ def user_top_tracks(limit,offset,time_range):
     for idx, tracks in enumerate(results_tracks["items"]):
         album = tracks["album"]
         for artist in tracks["artists"]:
-            print(idx,"Album: " + album["name"],",", "Song: " + tracks["name"],  ", " + "Artist: " + artist["name"])
+            return(idx,"Album: " + album["name"],",", "Song: " + tracks["name"],  ", " + "Artist: " + artist["name"])
         
             
-user_top_tracks(20,0,"medium_term")
