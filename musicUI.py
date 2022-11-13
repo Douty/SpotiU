@@ -10,7 +10,7 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.geometry(f"{800}x{800}")
-        self.title("Music Match Maker")
+        self.title("SpotiU")
         self.maxsize(800,800)
         self.minsize(800,800)
         customtkinter.set_appearance_mode("system")
@@ -35,25 +35,51 @@ class App(customtkinter.CTk):
                 self.authorize_btn.state=customtkinter.DISABLED
                 self.authorize_btn.configure(text="Authorized!")
                 
+  
+            
+            
+        #Users top artists function     
+        #def top_artists():
+        
+        
+        
+        #Users top tracks function 
+        #def top_tracks():
+        
+        
+        
+        
+        #Users genre tracks function 
+        #def genre_tracks():
+        
+        
+        
+        
+        #Depedning on the choice the user makes, activate a different function                    
         def combobox_callback(choice):
             match choice:
                 case "Top artists":
-                    print("user selected top artists")
+                    user_results.configure(state="normal")
+                    user_results.textbox.delete("0.0","end")
+                    
+                    user_results.insert('0.0', choice) 
+                    user_results.configure(state="disabled") 
                 case "Top Tracks":
                     print("user selected top tracks")
-
+                case "Top Genres":
+                    print("user selected top Genre")
+                    
+        #Creates a dropdown menu which allows the user to see what metric to see 
         user_select_box= customtkinter.CTkComboBox(master=self,
                                      values=["Top artists", "Top Tracks"],
                                      command=combobox_callback)
         user_select_box.pack(padx=20, pady=10)
-                    
+        
+        #Creates a textbox to see the results in 
         user_results = customtkinter.CTkTextbox(self,width=500, height=250)
         user_results.pack(padx=10)
+      
 
-        user_results.insert("0.0", "lol")  # insert at line 0 character 0
-        # get text from line 0 character 0 till the end
-
-        user_results.configure(state="disabled")  # configure textbox to be read-only
         
                 
         
