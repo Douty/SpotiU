@@ -34,8 +34,26 @@ class App(customtkinter.CTk):
         if os.path.isfile(".cache"):
                 self.authorize_btn.state=customtkinter.DISABLED
                 self.authorize_btn.configure(text="Authorized!")
-        
-        
+                
+        def combobox_callback(choice):
+            match choice:
+                case "Top artists":
+                    print("user selected top artists")
+                case "Top Tracks":
+                    print("user selected top tracks")
+
+        user_select_box= customtkinter.CTkComboBox(master=self,
+                                     values=["Top artists", "Top Tracks"],
+                                     command=combobox_callback)
+        user_select_box.pack(padx=20, pady=10)
+                    
+        user_results = customtkinter.CTkTextbox(self,width=500, height=250)
+        user_results.pack(padx=10)
+
+        user_results.insert("0.0", "lol")  # insert at line 0 character 0
+        # get text from line 0 character 0 till the end
+
+        user_results.configure(state="disabled")  # configure textbox to be read-only
         
                 
         
