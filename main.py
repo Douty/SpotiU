@@ -38,7 +38,6 @@ cat = sp.artist("0O1UtbTe4ca7HabaiMhYZ7")
 
 
 
-
 #optimize 
 def user_genre_sample_list():
     genres = []
